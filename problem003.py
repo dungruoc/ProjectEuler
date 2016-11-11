@@ -36,13 +36,13 @@ def find_largest_factor(iNumber):
     iNumber, aLargest = find_factor(aPrimeList, iNumber)
     while aLargest < iNumber:
         aLimit = iNumber / 2 + 1
-        aNextPrime = next_prime(aPrimeList)
-        aNewPrime = False
-        if aNextPrime <= aLimit:
-            aPrimeList.append(aNextPrime)
-            aNewPrime = True
+        aLargestPrime = aPrimeList[-1]
+        if aLimit > aLargestPrime:
+            aLargestPrime = next_prime(aPrimeList)
+            if aLargestPrime <= aLimit:
+                aPrimeList.append(aLargestPrime)
         iNumber, aNewLargest = find_factor(aPrimeList, iNumber)
-        if not aNewPrime and aNewLargest == 0:
+        if aNewLargest == 0 and aLargestPrime > aLimit:
             aNewLargest = iNumber
         if aLargest < aNewLargest:
             aLargest = aNewLargest
