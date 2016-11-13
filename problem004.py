@@ -18,7 +18,7 @@ def find_palindrome_product(iDigit):
             aProduct = i * j
             if test_palindrome(str(aProduct)):
                 aPalindrome = aProduct
-                break
+                break # No need to loop for j anymore
         if aPalindrome > aLargest:
             aLargest = aPalindrome
     return aLargest
