@@ -7,10 +7,15 @@ What is the 10 001st prime number?
 
 """
 
+import math
+
 def divided_by(iPrimeList, iNumber):
+    aLimit = math.sqrt(iNumber)
     for num in iPrimeList:
         if iNumber % num == 0:
             return num
+        if num > aLimit:
+            break
     return 0
 
 def next_prime(iPrimeList):
