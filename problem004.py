@@ -9,11 +9,12 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 def test_palindrome(iString):
     return iString == iString[::-1]
     
-def find_palindrome():
+def find_palindrome_product(iDigit):
+    aRange = xrange(10 ** (iDigit - 1), 10 ** iDigit)
     aLargest = 0
-    for i in reversed(xrange(100, 999)):
+    for i in reversed(aRange):
         aPalindrome = 0
-        for j in reversed(xrange(100, 999)):
+        for j in reversed(aRange):
             aProduct = i * j
             if test_palindrome(str(aProduct)):
                 aPalindrome = aProduct
@@ -24,7 +25,7 @@ def find_palindrome():
 
 def main():
     print('Hello Problem 4')
-    print(find_palindrome())
+    print(find_palindrome_product(3))
 
 if __name__ == '__main__':
     main()
